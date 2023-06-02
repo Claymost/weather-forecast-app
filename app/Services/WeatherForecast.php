@@ -10,15 +10,12 @@ use Illuminate\Support\Facades\Log;
  */
 class WeatherForecast
 {
-    private $cities = [];
+    private $cities = ['Gold Coast', 'Brisbane', 'Sunshine Coast'];
     private $days = 5;
     private $forecast = [];
 
-    private CONST PRETTY_NAMES = [
-        'goldcoast' => 'Gold Coast',
-    ];
     
-    private CONST APIURL = 'https://api.weatherbit.io/v2.0/forecast/daily'; // 
+    private CONST APIURL = 'https://api.weatherbit.io/v2.0/forecast/daily';
     
 
     /**
@@ -72,10 +69,10 @@ class WeatherForecast
     }
 
     /**
-     * Undocumented function
+     * Gets the forecast for the given city and stores it in the forecast property.
      *
-     * @param [type] $city
-     * @return void
+     * @param string $city
+     * @return WeatherForecast
      * @throws \Exception
      */
     private function retrieveForecastForCity($city) {
@@ -90,6 +87,12 @@ class WeatherForecast
         return $this;
     }
 
+    /**
+     * Retrieves the forecast for the given city from the weatherbit API.
+     *
+     * @param string $city
+     * @return Array
+     */
     private function retrieveForecastFromApi($city) {
         // use guzzle
         $client = new \GuzzleHttp\Client();
@@ -105,16 +108,17 @@ class WeatherForecast
             'query' => $query
         ]);
 
-        //check code 
+        //Check code is 200. If not, throw an error.
         if ($response->getStatusCode() != 200) {
-            Log::error('Error retrieving forecast for ' . $city . '. Error: ' . $response->getReasonPhrase());
-            return;
+            throw new \Exception('Error retrieving forecast for ' . $city . '. Status code: ' . $response->getStatusCode());
         }
 
-        //check if the response is valid
+        //check if the response is valid. If not throw an error
         $response = json_decode($response->getBody(), true);
         if (!isset($response['data']))
-            Log::error('Error retrieving forecast for ' . $city . '. Error: ' . $response['error']);
+        {
+            throw new \Exception('Error retrieving forecast for ' . $city . '. Response: ' . $response);
+        }
 
         return $response;
     }
