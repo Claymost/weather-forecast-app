@@ -18,7 +18,8 @@ class ForecastCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Generates a simple 5 day temperature forecast for the given cities. 
+    Please either disclude spaces from city names or use underscores in place of spaces.';
 
     /**
      * Execute the console command.
