@@ -18,7 +18,7 @@
     <body>
         <div class="container">
             <div id="app">
-            <home-component></home-component>
+                <app></app>
             </div>
         </div>
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
