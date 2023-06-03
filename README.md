@@ -14,7 +14,7 @@ To run the app locally
 - Create an .env file using by copying the example.env
     - eg `cp .env.example > .env`
 - Generate an app key with php `php artisan key:generate`
-- Add the API key into the environment file under the property `WEATHERBIT_API_KEY=?`
+- Add the Weatherbit API key into the environment file under the property `WEATHERBIT_API_KEY=?`
 - Install the dependencies (alternatively, you could use sail at this point if you don't have PHP 8.1 locally)
     - `npm install`
     - `composer install`
