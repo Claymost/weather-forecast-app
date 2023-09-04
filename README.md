@@ -27,5 +27,3 @@ In order to view the web interface locally, you must:
 - In another terminal, run `php artisan serve`
 
 Following this, the front end can be accessed. The default address is localhost:8000
-
-- Fluent interfaces for the API is definitely a little bit experimental on my behalf. I didn't run into any issues with it though. Might not be ideal for testing.
