@@ -19,7 +19,7 @@ To run the app locally
     - `composer install`
 
 
-## Run the application
+# Run the application
 
 In order to view the web interface locally, you must:
 
