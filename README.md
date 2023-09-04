@@ -8,7 +8,7 @@ Alternatively, the dev environment can be run using docker and laravel sail by f
 # Set up
 To run the app locally
 - Clone the repo 
-    - For example, use the command 'git clone git@github.com:Claymost/r6weatherforecast.git'
+    - For example, use the command 'git clone git@github.com:Claymost/weather-forecasting-app.git'
 - Navigate into the newly created repo folder
 - Create an .env file using by copying the example.env
     - eg `cp .env.example > .env`
