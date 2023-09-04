@@ -1,6 +1,6 @@
 ## Simple Weather Forecast App - R6
 
-This is a simple weather forecast application created for the r6 php developer coding test.
+This is a simple weather forecast application created for a developer coding test.
 
 ## Local dependencies
 PHP version of 8.1
